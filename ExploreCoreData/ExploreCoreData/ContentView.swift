@@ -11,7 +11,10 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @FetchRequest(entity: FruitEntity.entity(), sortDescriptors: []) var fruits: FetchedResults<FruitEntity>
+    @FetchRequest(
+        entity: FruitEntity.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \FruitEntity.name, ascending: true)])
+    var fruits: FetchedResults<FruitEntity>
 
     var body: some View {
         NavigationView {
