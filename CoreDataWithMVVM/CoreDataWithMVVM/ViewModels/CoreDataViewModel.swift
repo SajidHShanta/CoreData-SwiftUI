@@ -34,4 +34,12 @@ class CoreDataViewModel: ObservableObject {
             print("Error on freching. \(error.localizedDescription)")
         }
     }
+    
+    func saveData() {
+        do {
+            try container.viewContext.save()
+        } catch let error {
+            print("Error on saving data. \(error.localizedDescription)")
+        }
+    }
 }
