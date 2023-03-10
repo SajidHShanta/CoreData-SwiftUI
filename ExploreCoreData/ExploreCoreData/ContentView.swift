@@ -74,7 +74,6 @@ struct ContentView: View {
             let updatedName = currentName + "!"
             fruit.name = updatedName
             
-            
             saveItems()
         }
     }
