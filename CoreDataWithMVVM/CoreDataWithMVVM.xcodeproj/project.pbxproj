@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FFA08A6F29BB83D500AC24FB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA08A6E29BB83D500AC24FB /* HomeView.swift */; };
 		FFA9700629BB7D0500BC23FB /* CoreDataWithMVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9700529BB7D0500BC23FB /* CoreDataWithMVVMApp.swift */; };
 		FFA9700829BB7D0500BC23FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9700729BB7D0500BC23FB /* ContentView.swift */; };
 		FFA9700A29BB7D0900BC23FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFA9700929BB7D0900BC23FB /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FFA08A6E29BB83D500AC24FB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FFA9700229BB7D0500BC23FB /* CoreDataWithMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataWithMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFA9700529BB7D0500BC23FB /* CoreDataWithMVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataWithMVVMApp.swift; sourceTree = "<group>"; };
 		FFA9700729BB7D0500BC23FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +38,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FFA08A6D29BB83C000AC24FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FFA08A6E29BB83D500AC24FB /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FFA96FF929BB7D0500BC23FB = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +65,7 @@
 		FFA9700429BB7D0500BC23FB /* CoreDataWithMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				FFA08A6D29BB83C000AC24FB /* View */,
 				FFA9701729BB7E7400BC23FB /* Models */,
 				FFA9701429BB7D2D00BC23FB /* ViewModels */,
 				FFA9700529BB7D0500BC23FB /* CoreDataWithMVVMApp.swift */,
@@ -162,6 +173,7 @@
 				FFA9701A29BB7EA100BC23FB /* FruitsContainer.xcdatamodeld in Sources */,
 				FFA9700829BB7D0500BC23FB /* ContentView.swift in Sources */,
 				FFA9701629BB7D5700BC23FB /* CoreDataViewModel.swift in Sources */,
+				FFA08A6F29BB83D500AC24FB /* HomeView.swift in Sources */,
 				FFA9700629BB7D0500BC23FB /* CoreDataWithMVVMApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
