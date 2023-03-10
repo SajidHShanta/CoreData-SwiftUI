@@ -35,9 +35,17 @@ class CoreDataViewModel: ObservableObject {
         }
     }
     
+    func addFruits(fruitName: String) {
+        let newFruits = FruitEntity(context: container.viewContext)
+        newFruits.name = fruitName
+        
+        saveData()
+    }
+    
     func saveData() {
         do {
             try container.viewContext.save()
+            fetchFruits()
         } catch let error {
             print("Error on saving data. \(error.localizedDescription)")
         }
