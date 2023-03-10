@@ -15,32 +15,53 @@ struct ContentView: View {
         entity: FruitEntity.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \FruitEntity.name, ascending: true)])
     var fruits: FetchedResults<FruitEntity>
+    
+    @State private var textFieldText: String = ""
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(fruits) { fruit in
-                    Text(fruit.name ?? "")
+            VStack(spacing: 20) {
+                TextField("Add fruit here...", text: $textFieldText)
+                    .font(.headline)
+                    .padding(.leading)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 50)
+                    .background(.gray.opacity(0.1))
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+                Button {
+                    addItem()
+                } label: {
+                    Text("Add")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .background(.blue)
+                        .cornerRadius(10)
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .listStyle(.plain)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                .padding(.horizontal)
+
+                
+                List {
+                    ForEach(fruits) { fruit in
+                        Text(fruit.name ?? "")
                     }
+                    .onDelete(perform: deleteItems)
                 }
+                .listStyle(.plain)
             }
-            .navigationTitle("Fruits")        }
+            .navigationTitle("Fruits")
+        }
     }
 
     private func addItem() {
         withAnimation {
             let newFruit = FruitEntity(context: viewContext)
-            newFruit.name = "new Apple"
+            newFruit.name = textFieldText
             
             saveItems()
+            textFieldText = ""
         }
     }
 
