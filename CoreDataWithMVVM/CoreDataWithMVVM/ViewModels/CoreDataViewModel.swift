@@ -42,6 +42,14 @@ class CoreDataViewModel: ObservableObject {
         saveData()
     }
     
+    func deletFruit(indexSet: IndexSet) {
+        guard let index = indexSet.first else { return }
+        let entity = savedEntities[index]
+        container.viewContext.delete(entity)
+        
+        saveData()
+    }
+    
     func saveData() {
         do {
             try container.viewContext.save()

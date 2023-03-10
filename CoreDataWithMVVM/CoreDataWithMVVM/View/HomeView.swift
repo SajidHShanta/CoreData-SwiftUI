@@ -42,6 +42,10 @@ struct HomeView: View {
                     ForEach(vm.savedEntities) { entity in
                         Text(entity.name ?? "no name")
                     }
+                    .onDelete(perform: vm.deletFruit)
+//                    .onDelete { index in
+//                        vm.deletFruits(indexSet: index)
+//                    }
                 }
                 .listStyle(.plain)
             }
