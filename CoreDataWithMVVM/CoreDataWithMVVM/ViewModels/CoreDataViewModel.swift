@@ -11,6 +11,8 @@ import CoreData
 class CoreDataViewModel: ObservableObject {
     let container: NSPersistentContainer
     
+    @Published var savedEntities: [FruitEntity] = []
+    
     init() {
         container = NSPersistentContainer(name: "FruitsContainer")
         container.loadPersistentStores { description, error in
@@ -19,6 +21,17 @@ class CoreDataViewModel: ObservableObject {
             } else {
                 print("Successfully load Cord Data")
             }
+        }
+        fetchFruits()
+    }
+    
+    func fetchFruits() {
+        let request = NSFetchRequest<FruitEntity>(entityName: "FruitEntity")
+        
+        do {
+            savedEntities = try container.viewContext.fetch(request)
+        } catch let error {
+            print("Error on freching. \(error.localizedDescription)")
         }
     }
 }
