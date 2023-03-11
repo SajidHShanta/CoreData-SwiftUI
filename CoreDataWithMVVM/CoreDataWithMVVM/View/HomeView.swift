@@ -41,6 +41,9 @@ struct HomeView: View {
                 List {
                     ForEach(vm.savedEntities) { entity in
                         Text(entity.name ?? "no name")
+                            .onTapGesture {
+                                vm.updateFruit(entity: entity)
+                            }
                     }
                     .onDelete(perform: vm.deletFruit)
 //                    .onDelete { index in

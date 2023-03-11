@@ -42,6 +42,14 @@ class CoreDataViewModel: ObservableObject {
         saveData()
     }
     
+    func updateFruit(entity: FruitEntity) {
+        let currentName = entity.name ?? ""
+        let updatedName = currentName + "!"
+        entity.name = updatedName
+        
+        saveData()
+    }
+    
     func deletFruit(indexSet: IndexSet) {
         guard let index = indexSet.first else { return }
         let entity = savedEntities[index]
