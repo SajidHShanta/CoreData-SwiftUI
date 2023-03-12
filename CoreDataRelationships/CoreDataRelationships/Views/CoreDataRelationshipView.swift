@@ -25,6 +25,18 @@ struct CoreDataRelationshipView: View {
                             .background(.blue)
                             .cornerRadius(10)
                     }
+                    
+                    ScrollView(.horizontal) {
+                        HStack {
+                            ForEach(vm.businessess) { business in
+                                businessView(businessEntity: business)
+                                    .padding()
+                                    .frame(maxWidth: 300, alignment: .leading)
+                                    .background(.gray.opacity(0.2))
+                                    .cornerRadius(10)
+                            }
+                        }
+                    }
                 }
                 .padding()
             }
@@ -36,5 +48,33 @@ struct CoreDataRelationshipView: View {
 struct CoreDataRelationshipView_Previews: PreviewProvider {
     static var previews: some View {
         CoreDataRelationshipView()
+    }
+}
+
+extension CoreDataRelationshipView {
+    func businessView(businessEntity: BusinessEntity) -> some View {
+        VStack {
+            Text(businessEntity.name ?? "")
+                .bold()
+            
+            if let departments = businessEntity.departments?.allObjects as? [DepartmentEntity] {
+                Text("Departments:")
+                    .bold()
+                ForEach(departments) { department in
+                    Text(department.name ?? "")
+                }
+            }
+            
+            if let employees = businessEntity.employees?.allObjects as? [EmployeeEntity] {
+                Text("Employees:")
+                    .bold()
+                
+                ForEach(employees) { employee in
+                    Text(employee.name ?? "")
+                        .bold()
+                }
+            }
+        }
+
     }
 }

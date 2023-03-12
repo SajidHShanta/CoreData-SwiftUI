@@ -6,15 +6,32 @@
 //
 
 import Foundation
+import CoreData
 
 class CoreDataRelationshipViewModel: ObservableObject {
     let maneger = CoreDataManager.instance
     
-    @Published var business: [BusinessEntity] = []
+    @Published var businessess: [BusinessEntity] = []
+    
+    func getBusinessess() {
+        let request = NSFetchRequest<BusinessEntity>(entityName: "BusinessEntity")
+        
+        do {
+            businessess = try maneger.context.fetch(request)
+        } catch let error {
+            print("Error on fetchig data, \(error.localizedDescription)")
+        }
+    }
     
     func addBusiness() {
         let newBusiness = BusinessEntity(context: maneger.context)
         newBusiness.name = "10MS"
+        
+        save()
+    }
+    
+    func save() {
         maneger.save()
+        getBusinessess()
     }
 }
