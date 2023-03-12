@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FFA08A7D29BCBB3400AC24FB /* CoreDataRelationshipsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA08A7C29BCBB3400AC24FB /* CoreDataRelationshipsApp.swift */; };
-		FFA08A7F29BCBB3400AC24FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA08A7E29BCBB3400AC24FB /* ContentView.swift */; };
 		FFA08A8129BCBB3700AC24FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFA08A8029BCBB3700AC24FB /* Assets.xcassets */; };
 		FFA08A8429BCBB3700AC24FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFA08A8329BCBB3700AC24FB /* Preview Assets.xcassets */; };
 		FFA08A8E29BCBB7500AC24FB /* CoreDataRelationshipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA08A8D29BCBB7500AC24FB /* CoreDataRelationshipViewModel.swift */; };
@@ -20,7 +19,6 @@
 /* Begin PBXFileReference section */
 		FFA08A7929BCBB3400AC24FB /* CoreDataRelationships.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataRelationships.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFA08A7C29BCBB3400AC24FB /* CoreDataRelationshipsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRelationshipsApp.swift; sourceTree = "<group>"; };
-		FFA08A7E29BCBB3400AC24FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FFA08A8029BCBB3700AC24FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFA08A8329BCBB3700AC24FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FFA08A8D29BCBB7500AC24FB /* CoreDataRelationshipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRelationshipViewModel.swift; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 				FFA08A8B29BCBB4900AC24FB /* Views */,
 				FFA08A8A29BCBB3F00AC24FB /* ViewModels */,
 				FFA08A7C29BCBB3400AC24FB /* CoreDataRelationshipsApp.swift */,
-				FFA08A7E29BCBB3400AC24FB /* ContentView.swift */,
 				FFA08A8029BCBB3700AC24FB /* Assets.xcassets */,
 				FFA08A8229BCBB3700AC24FB /* Preview Content */,
 			);
@@ -184,7 +181,6 @@
 				FFA08A9629BCBDE200AC24FB /* CoreDataContainer.xcdatamodeld in Sources */,
 				FFA08A8E29BCBB7500AC24FB /* CoreDataRelationshipViewModel.swift in Sources */,
 				FFA08A9029BCBBB700AC24FB /* CoreDataRelationshipView.swift in Sources */,
-				FFA08A7F29BCBB3400AC24FB /* ContentView.swift in Sources */,
 				FFA08A9329BCBC8400AC24FB /* CoreDataManager.swift in Sources */,
 				FFA08A7D29BCBB3400AC24FB /* CoreDataRelationshipsApp.swift in Sources */,
 			);

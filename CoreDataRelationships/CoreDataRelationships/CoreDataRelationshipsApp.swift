@@ -11,7 +11,7 @@ import SwiftUI
 struct CoreDataRelationshipsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CoreDataRelationshipView()
         }
     }
 }
