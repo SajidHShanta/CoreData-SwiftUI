@@ -12,6 +12,7 @@
     </entity>
     <entity name="EmployeeEntity" representedClassName="EmployeeEntity" syncable="YES" codeGenerationType="class">
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dateJoined" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="business" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BusinessEntity" inverseName="employees" inverseEntity="BusinessEntity"/>
         <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DepartmentEntity" inverseName="employees" inverseEntity="DepartmentEntity"/>

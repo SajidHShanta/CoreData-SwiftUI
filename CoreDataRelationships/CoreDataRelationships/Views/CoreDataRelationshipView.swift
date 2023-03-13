@@ -38,6 +38,18 @@ struct CoreDataRelationshipView: View {
                             .cornerRadius(10)
                     }
                     
+                    Button {
+                        vm.addEmployee()
+                    } label: {
+                        Text("ADD EMPLOYEE")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(height: 55)
+                            .frame(maxWidth: .infinity)
+                            .background(.blue)
+                            .cornerRadius(10)
+                    }
+                    
                     Text("Business")
                         .font(.headline)
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -65,6 +77,20 @@ struct CoreDataRelationshipView: View {
                             }
                         }
                     }
+                    
+                    Text("Employees")
+                        .font(.headline)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(vm.employees) { employee in
+                                employeeView(employeeEntity: employee)
+                                    .padding()
+                                    .frame(maxWidth: 300, alignment: .leading)
+                                    .background(.blue.opacity(0.2))
+                                    .cornerRadius(10)
+                            }
+                        }
+                    }
                 }
                 .padding()
             }
@@ -81,8 +107,8 @@ struct CoreDataRelationshipView_Previews: PreviewProvider {
 
 extension CoreDataRelationshipView {
     func businessView(businessEntity: BusinessEntity) -> some View {
-        VStack {
-            Text(businessEntity.name ?? "")
+        VStack(alignment: .leading) {
+            Text("Name: \(businessEntity.name ?? "")")
                 .bold()
             
             if let departments = businessEntity.departments?.allObjects as? [DepartmentEntity] {
@@ -103,12 +129,11 @@ extension CoreDataRelationshipView {
                 }
             }
         }
-
     }
     
     func departmentView(departmentEntity: DepartmentEntity) -> some View {
-        VStack {
-            Text(departmentEntity.name ?? "")
+        VStack(alignment: .leading) {
+            Text("Name: \(departmentEntity.name ?? "")")
                 .bold()
             
             if let businessess = departmentEntity.businessess?.allObjects as? [BusinessEntity] {
@@ -129,6 +154,26 @@ extension CoreDataRelationshipView {
                 }
             }
         }
-
+    }
+    
+    func employeeView(employeeEntity: EmployeeEntity) -> some View {
+        VStack(alignment: .leading) {
+            Text("Name: \(employeeEntity.name ?? "")")
+                .bold()
+            Text("Age: \(employeeEntity.age)")
+            Text("Date Joined: \(employeeEntity.dateJoined ?? Date())")
+            
+            if let business = employeeEntity.business {
+                Text("Business:")
+                    .bold()
+                Text(business.name ?? "")
+            }
+            
+            if let department = employeeEntity.department {
+                Text("Department:")
+                    .bold()
+                Text(department.name ?? "")
+            }
+        }
     }
 }

@@ -13,10 +13,12 @@ class CoreDataRelationshipViewModel: ObservableObject {
     
     @Published var businessess: [BusinessEntity] = []
     @Published var departments: [DepartmentEntity] = []
+    @Published var employees: [EmployeeEntity] = []
     
     init() {
         getBusinessess()
         getDepartments()
+        getEmployees()
     }
     
     func getBusinessess() {
@@ -39,6 +41,16 @@ class CoreDataRelationshipViewModel: ObservableObject {
         }
     }
     
+    func getEmployees() {
+        let request = NSFetchRequest<EmployeeEntity>(entityName: "EmployeeEntity")
+        
+        do {
+            employees = try maneger.context.fetch(request)
+        } catch let error {
+            print("Error on fetchig data, \(error.localizedDescription)")
+        }
+    }
+    
     func addBusiness() {
         let newBusiness = BusinessEntity(context: maneger.context)
         newBusiness.name = "10MS"
@@ -54,9 +66,21 @@ class CoreDataRelationshipViewModel: ObservableObject {
         save()
     }
     
+    func addEmployee() {
+        let newEmployee = EmployeeEntity(context: maneger.context)
+        newEmployee.name = "Sajid"
+        newEmployee.dateJoined = Date()
+        newEmployee.age = 19
+        newEmployee.business = businessess[0]
+        newEmployee.department = departments[0]
+        
+        save()
+    }
+    
     func save() {
         maneger.save()
         getBusinessess()
         getDepartments()
+        getEmployees()
     }
 }
